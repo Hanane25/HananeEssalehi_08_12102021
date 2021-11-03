@@ -41,7 +41,7 @@ class AboutDropdown extends React.Component {
     }
 
     handleDescription() {
-        if (this.state.isOpen === false) {
+        if (this.state.isOpen === true) {
             return (
                 <StyledDescription>{this.props.description}</StyledDescription>
             )
