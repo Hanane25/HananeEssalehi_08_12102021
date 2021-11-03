@@ -7,6 +7,7 @@ import AboutDropdown from "../../components/AboutDropdown";
 import styled from "styled-components";
 import colors from "../../style/color";
 import Rating from "../../components/AppartRating";
+import { Redirect } from "react-router-dom";
 
 const StyledAppartInfoHeader = styled.section`
     margin: 0 50px;
@@ -126,7 +127,7 @@ class Apparts extends Component {
 
         return (
             <main>
-                {this.state.appart && (
+                {this.state.appart ? (
                     <>
                         <Caroussel pictures={this.state.appart.pictures} id={this.state.appart.id} />
                         <StyledAppartInfoHeader>
@@ -168,7 +169,10 @@ class Apparts extends Component {
                             </StyledAppartEquip>
                         </StyledAppartContent>
                     </>
-                )}
+                )
+                    : this.state.appart === undefined &&
+                    <Redirect to='/404' />
+                }
 
             </main>
         )
