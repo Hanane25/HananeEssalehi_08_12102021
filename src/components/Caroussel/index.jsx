@@ -90,9 +90,15 @@ class Caroussel extends Component {
         return (
             <StyledContent>
                 <StyledImg src={this.state.pictures[this.state.photoNumber]} alt="" />
+                {
+                    this.state.pictures.length > 1 && (
+                        <>
+                            <StyledArrowLeft className="fas fa-chevron-left" onClick={() => this.previousPhoto()}></StyledArrowLeft>
+                            <StyledArrowRight className="fas fa-chevron-right" onClick={() => this.nextPhoto()}></StyledArrowRight>
+                        </>
+                    )
+                }
 
-                <StyledArrowLeft className="fas fa-chevron-left" onClick={() => this.previousPhoto()}></StyledArrowLeft>
-                <StyledArrowRight className="fas fa-chevron-right" onClick={() => this.nextPhoto()}></StyledArrowRight>
 
                 <StyledNav>
                     {this.state.photoNumber + 1} / {this.props.pictures.length}
